@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body class="body">
+    <h2 class="h2">Welcome to School Mangement System</h2>
+    <h3 class="h3">Select your Respective Field</h3>
+    <div class="box" onclick="document.getElementById('admin').style.display='block'">
+        <p>Admin</p>
+    </div>
+    <div class="box" onclick="document.getElementById('teacher').style.display='block'">
+        <p>Teacher</p>
+    </div>
+    <div class="box"onclick="document.getElementById('student').style.display='block'">
+        <p>Student</p>
+    </div>
+    <!--Modal-Admin-->
+    <div id='admin' class="modal">
+  
+        <form class="modal-content animate" action="/action_page.php" method="post">
+          <div class="imgcontainer">
+            <span onclick="document.getElementById('admin').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <img src="img/a.jpg" alt="Avatar" class="avatar">
+          </div>
+      
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+      
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+              
+            <button type="submit">Login</button>
+            <button type="button">Sign up</button>
+          </div>
+        </form>
+      </div>
+      <!--Modal-End-->
+        <!--Modal-Teacher-->
+    <div id='teacher' class="modal">
+  
+        <form class="modal-content animate" action="/action_page.php" method="post">
+          <div class="imgcontainer">
+            <span onclick="document.getElementById('teacher').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <img src="img/t.png" alt="Avatar" class="avatar">
+          </div>
+      
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+      
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+              
+            <button type="submit">Login</button>
+            <button type="button">Sign up</button>
+          </div>
+        </form>
+      </div>
+      <!--Modal-End-->
+        <!--Modal-Student-->
+    <div id='student' class="modal">
+  
+        <form class="modal-content animate" action="/action_page.php" method="post">
+          <div class="imgcontainer">
+            <span onclick="document.getElementById('student').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <img src="img/s.jpg" alt="Avatar" class="avatar">
+          </div>
+      
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+      
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+              
+            <button type="submit">Login</button>
+            <button type="button">Sign up</button>
+          </div>
+        </form>
+      </div>
+      <!--Modal-End-->
+      
+<script>
+ // Get the modal Admin  
+var modalAdmin = document.getElementById('admin');
+var modalTeacher = document.getElementById('teacher');
+var modalStudent = document.getElementById('student');
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modalAdmin) {
+        modalAdmin.style.display = "none";
+    }else if(event.target == modalTeacher){
+        modalTeacher.style.display ="none";
+    }else if(event.target == modalStudent){
+        modalStudent.style.display ="none";
+    }
+}
+//  // Get the modal Teacher  
+//  var modalTeacher = document.getElementById('teacher');
+
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(eventt) {
+//     if (eventt.target == modalTeacher) {
+//         modalAdmin.style.display = "none";
+//     }
+// }
+//  // Get the modal Student  
+//  var modalStudent = document.getElementById('student');
+
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(events) {
+//     if (events.target == modalStudent) {
+//         modalAdmin.style.display = "none";
+//     }
+// }
+</script>
+
+</body>
+</html>
