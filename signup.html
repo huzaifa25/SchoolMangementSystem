@@ -7,14 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>signup</title>
 </head>
-<body>
-    <div class="container">
+<body class="bsign">
+    
+    <div class="regcontainer">
+        <p class="rig">Register Your Self</p>
         <form class="">
             <label for="mail"><b>Email</b></label>
             <input type="email" placeholder="Enter Email" name="mail" required>
-        
+            
+            <label for="username"><b>User Name</b></label>
+            <input type="text" placeholder="Enter UserName" name="username" required>
+
             <label for="passwords"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="passwords" required>
+
+            <label for="confirmpassword"><b>Confirm Password</b></label>
+            <input type="password" placeholder="Confirm Password" name="confirmpassword" required>
+        
+            <p><b>Select your Field:</b></p>
+           <label  class="rad"> <input type="radio" name="field" value="admin"><b>Admin</b></label>
+           <label  class="rad"><input type="radio" name="field" value="Teacher" ><b>Teacher</b></label>
+            <label  class="rad"><input type="radio" name="field" value="Student" ><b>Student</b></label>
+            <button type="submit">Sign Up</button>
         </form>
     </div>
 </body>

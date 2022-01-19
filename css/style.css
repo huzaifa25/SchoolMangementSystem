@@ -1,8 +1,24 @@
 .container{
-    width: 80%;
-    height: auto;
-    background-color: aquamarine;
-    border: 1px solid #888;
+    background-color:cadetblue;
+    color: whitesmoke;
+    padding: 16px;
+}
+.regcontainer{
+  width: 48%;
+  height: auto;
+  background-color:cadetblue;
+  border-radius: 21px;
+  /* align-content: center; */
+  margin: auto;
+  margin-top: 5rem;
+  color: whitesmoke;
+  padding: 16px;
+}
+
+.bsign{
+    background-image: url("../img/bg.png");
+    background-repeat: none;
+   background-size: cover;
 }
 .body{
     background-color: aquamarine;
@@ -21,6 +37,13 @@
     margin-top: 1rem;
     color:lightslategray;
 }
+.rig{
+  font-family: system-ui;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 1rem;
+  
+}
 .box{
     background: lightslategray;
     width: 17rem;
@@ -33,13 +56,14 @@
     font-size: 2.3rem;
     display: inline-block;
     margin: 3rem 0rem 0rem 11rem;
+    
 
 }
 .box:hover{
     background-color:cornflowerblue;
 }
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email]{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -48,6 +72,11 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
   }
   
+ .rad{ 
+  padding: 0rem 0rem 0rem 8rem;
+  } 
+  
+ 
   /* Set a style for all buttons */
   button {
     background-color:lightslategray;
@@ -75,11 +104,7 @@ input[type=text], input[type=password] {
     width: 40%;
     border-radius: 50%;
   }
-  
-  .container {
-    padding: 16px;
-  }
-  
+   
   span.psw {
     float: right;
     padding-top: 16px;
