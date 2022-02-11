@@ -1,7 +1,7 @@
 .container{
-    background-color:cadetblue;
+    background-color:#094244;
     color: whitesmoke;
-    padding: 16px;
+    padding: 16px 16px 31px 16px;
 }
 .regcontainer{
   width: 48%;
@@ -41,7 +41,7 @@ padding: 16px;
  background-size: cover;
 }
 .body{
-  background-color: aquamarine;
+  background-color: #290b38;
 }
 .h2{
   font-family: system-ui;
@@ -72,10 +72,10 @@ margin-top: 1rem;
   
 }
 .box{
-  background: lightslategray;
+  /* background: lightslategray; */
   width: 17rem;
   color: azure;
-  border-radius: 0.7rem;
+  /* border-radius: 0.7rem; */
   /* padding: 1rem 0rem 0rem 4rem; */
   text-align: center;
   font-family: system-ui;
@@ -83,11 +83,15 @@ margin-top: 1rem;
   font-size: 2.3rem;
   display: inline-block;
   margin: 3rem 0rem 0rem 11rem;
-  
+  position: relative;
+  top: 0;
+  transition: top ease 0.4s;
+  box-shadow: 2px 4px 10px 5px rebeccapurple;
 
 }
 .box:hover{
-  background-color:cornflowerblue;
+  background-color:indigo;
+  top: -10px;
 }
 /* Full-width input fields */
 input[type=text], input[type=password], input[type=email]{
@@ -132,9 +136,9 @@ img.avatar {
   border-radius: 50%;
 }
  
-span.psw {
+span.fpsw {
   float: right;
-  padding-top: 16px;
+  background-color: whitesmoke;
 }
 
 /* The Modal (background) */
@@ -157,7 +161,7 @@ span.psw {
 .modal-content {
   background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
+  /* border: 1px solid #888; */
   width: 34%;
   border-radius: 33px; 
 }
@@ -205,16 +209,177 @@ span.psw {
 }
 .adbox{
   background:#201919e8;
-  width: 20rem;
-  height: 8rem;
+  width: 72rem;
+  height: auto;
   font-family: system system-ui;
   box-shadow:  3px 5px 4px 2px #888888;
   border: 1px solid #888888;
+  margin: 7rem 0rem 0rem 11rem;
+  color: whitesmoke;
+  font-size: 2rem;
+}
+.afield{
+  font-size: 1rem;
+}
+.search-btn{
+  width: 9rem;
+  height: auto;
+  background-color: #5366df;
+  color: whitesmoke;
+  font-family: system system-ui;
+  font-weight: 600;
+  font-size: 0.9rem;
+  /* float: right;*/
+  margin:0.6rem 0rem 0rem 1rem; 
+}
+/* Teacher Page CSS */
+.teabox{
+  background:#201919e8;
+  width: 80rem;
+  height: auto;
+  font-family: system system-ui;
+  box-shadow:  3px 4px 18px 2px #888888;
+  border: 1px solid #888888;
   margin: 15rem 0rem 0rem 11rem;
   color: whitesmoke;
-  font-size: 4rem;
+  margin: 2rem 0rem 0rem 7rem;  
 }
-/* Form validity */
-/* .error{
-  color: red;
-} */
+.t-table {
+  font-family: system system-ui;
+  border-collapse: collapse;
+  width: 100%;
+  color: whitesmoke;
+  height: 100%;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.atd-rad{ 
+  padding: 0rem 1rem 0rem 0rem;
+  } 
+.tea-body{
+  background:#3e1313;
+  color: whitesmoke;
+  font-family: system system-ui;
+  text-align: center;
+}
+.atd-btn{
+  width: 9rem;
+  height: auto;
+  background-color: #5399df;
+  color: whitesmoke;
+  font-family: system system-ui;
+  font-weight: 600;
+  font-size: 0.9rem;
+  float: right;
+  margin:0.6rem 7.5rem 0rem 0rem;
+}
+.tlogout{
+  width: 9rem;
+  height: auto;
+  background-color: #354c62;
+  color: whitesmoke;
+  font-family: system system-ui;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0.5rem 0rem 0rem -32rem;
+  position: absolute;
+}
+.adm-btn{
+  width: 9rem;
+  height: auto;
+  background-color: #23bf9b;
+  color: whitesmoke;
+  font-family: system system-ui;
+  font-weight: 600;
+  font-size: 0.9rem;
+  position: absolute;
+}
+/* ent-marks Page CSS */
+.inmarks{
+  margin: auto;
+}
+.tmbox{
+  background:#201919e8;
+  width: 80rem;
+  height: auto;
+  font-family: system system-ui;
+  box-shadow:  3px 4px 18px 2px #888888;
+  border: 1px solid #888888;
+  margin: 15rem 0rem 0rem 11rem;
+  color: whitesmoke;
+  margin: 3rem 0rem 0rem 7rem;  
+}
+.tm-table {
+  font-family: system system-ui;
+  border-collapse: collapse;
+  width: 100%;
+  color: whitesmoke;
+  height: 100%;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.team-body{
+  background:#3e1313;
+  color: whitesmoke;
+  font-family: system system-ui;
+  text-align: center;
+}
+.atdm-btn{
+  width: 9rem;
+  height: auto;
+  background-color: #5399df;
+  color: whitesmoke;
+  font-family: system system-ui;
+  font-weight: 600;
+  font-size: 0.9rem;
+  float: right;
+  margin:0.6rem 7.5rem 0rem 0rem;
+}
+#select-course{
+  display:none;
+}
+/* password reset page */
+.container-fluid{
+  padding: 8rem 33rem 0rem 33rem;
+  color: whitesmoke;
+  /* background: darkcyan;
+  height: 37rem; */
+
+}
+.resetpsw{
+  background: darkcyan;
+}
+.form-group{
+background-color:lightslategray;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 100%;
+}
+/* Student page */
+.stubox{
+  background:#201919e8;
+  width: 80rem;
+  height: auto;
+  font-family: system system-ui;
+  box-shadow:  3px 4px 18px 2px #888888;
+  border: 1px solid #888888;
+  margin: 15rem 0rem 0rem 11rem;
+  color: whitesmoke;
+  margin: 12rem 0rem 0rem 7rem;  
+}
+.s-table{
+  font-family: system system-ui;
+  border-collapse: collapse;
+  width: 100%;
+  color: whitesmoke;
+  height: 100%;
+}
