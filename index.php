@@ -1,3 +1,97 @@
+<?php
+
+include('db.php');
+session_start();
+if(!isset( $_SESSION ['name'])){
+  echo"you are ogout kindly login first";
+  // header('location:#');
+}
+  // if(isset($_POST['admin_name']) || isset($_POST['teacher_name']) || isset($_POST['std_name'])){ 
+  //   // session_start();
+  //   // $servername = "localhost";
+  //   // $username = "root";
+  //   // $password = "cc";
+  //   // $dbname = "SchoolManagemant";
+
+  //   // Create connection
+  //   $conn = mysqli_connect('localhost', 'root', 'cc', 'SchoolManagemant');
+  //   if($conn){
+  //     echo"connection successful";
+  //   }else{
+  //     echo"not connected";
+  //   }
+  //   //fetching data
+  //     mysqli_select_db($conn, 'SchoolManagemant');}
+      //for admin login
+      if(isset($_POST['admin_name'])) {
+        session_start();
+        $usernameadmin = $_POST['admin_name'];
+        $passwordadmin = md5($_POST['admin_psw']);
+        $q="select * from Admin where UserName='$usernameadmin' && AdminPassword = '$passwordadmin'";
+        echo $q;
+        $result= mysqli_query ($conn, $q);
+        $num = mysqli_num_rows($result);
+        
+        if($num==1){
+          // $_SESSION['name']=$username;
+          header('location:admin.php');
+          exit();
+  
+        }else{
+          echo " incorrect username or password";
+          exit();
+        }
+      } //teaher login
+      if(isset($_POST['teacher_name'])) {
+        session_start();
+        $usernameteacher = $_POST['teacher_name'];
+        $passwordteacher = md5($_POST['tpsw']);
+        $t="select * from Teacher where UserName='$usernameteacher' && TeacherPassword = '$passwordteacher'";
+           
+       echo $t;
+         $resultt= mysqli_query($conn, $t);
+         $numt = mysqli_num_rows($resultt);
+        // var_dump($resultt);
+        // echo $resultt;
+        if($numt==1){
+          // $_SESSION['name']=$username;
+          //echo "hello";
+          header('location:teacher.php');
+          exit();
+
+        }else{
+          echo " incorrect username or passwordddd";
+          exit();
+        }
+      }
+       //student logoin
+       if(isset($_POST['std_name'])){
+       //session_start();
+        $_std_name= $_POST['std_name'];
+        $spsw= md5($_POST['spsw']);
+        $s="select * from Student where UserName='$_std_name' && StudentPassword = '$spsw'";
+           echo $s;
+          $results= mysqli_query($conn, $s);
+          $nums = mysqli_num_rows($results);
+          if($nums ==1){
+           
+            
+            $_SESSION ["name"] = $_POST['std_name'];//post hata
+            $_SESSION ["pass"]= md5($_POST['spsw']);
+            header('location:student.php');
+            
+          exit();
+
+        }else{
+          echo " incorrect username or passworddss";
+          exit();
+        }
+      }
+  
+  
+      
+  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +119,7 @@
     <!--Modal-Admin-->
     <div id='admin' class="modal">
   
-        <form id="loginform" class="modal-content animate" action="/action_page.php" method="post">
+        <form id="loginform" class="modal-content animate" action="#" method="post">
           <div class="imgcontainer">
             <span onclick="document.getElementById('admin').style.display='none'" class="close" title="Close Modal">&times;</span>
             <img src="img/a.jpg" alt="Avatar" class="avatar">
@@ -33,13 +127,14 @@
           
           <div class="container"  >
             <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="required, at least 2 characters" name="uname">
+            <input type="text" placeholder="required, at least 2 characters" name="admin_name">
             <br><br>
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Password require, at least 5 character" name="psw">
+            <input type="password" placeholder="Password require, at least 5 character" name="admin_psw">
               
             <button type="submit" name="submit">Login</button>
-            <button type="button">Sign up</button>
+            <a href="signup.php"><button type="button">Sign up</button></a>
+            <span class="fpsw"> <a href="forget-password.php">Forgot Password</a><span>
           </div>
         </form>
       </div>
@@ -47,20 +142,21 @@
         <!--Modal-Teacher-->
     <div id='teacher' class="modal">
   
-        <form id="loginform2" class="modal-content animate" action="/action_page.php" method="post">
+        <form id="loginform2" class="modal-content animate" action="#" method="post">
           <div class="imgcontainer">
             <span onclick="document.getElementById('teacher').style.display='none'" class="close" title="Close Modal">&times;</span>
             <img src="img/t.png" alt="Avatar" class="avatar">
           </div>
           <div class="container">
             <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" >
+            <input type="text" placeholder="Enter Username" name="teacher_name" >
             <br><br>
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" >
+            <input type="password" placeholder="Enter Password" name="tpsw" >
               
             <button type="submit" name="submit">Login</button>
-            <button type="button">Sign up</button>
+            <a href="signup.php"><button type="button">Sign up</button></a>
+           <span class="fpsw"> <a href="forget-password.php">Forgot Password</a><span>
           </div>
         </form>
       </div>
@@ -68,7 +164,7 @@
         <!--Modal-Student-->
     <div id='student' class="modal">
   
-        <form id="loginform3" class="modal-content animate" action="/action_page.php" method="post">
+        <form id="loginform3" class="modal-content animate" action="" method="post">
           <div class="imgcontainer">
             <span onclick="document.getElementById('student').style.display='none'" class="close" title="Close Modal">&times;</span>
             <img src="img/s.jpg" alt="Avatar" class="avatar">
@@ -76,13 +172,14 @@
       
           <div class="container">
             <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" >
+            <input type="text"  placeholder="Enter Username" name="std_name" >
             <br><br>
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" >
+            <label for="spsw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="spsw" >
               
             <button type="submit" name="submit" >Login</button>
-            <button type="button">Sign up</button>
+            <a href="signup.php"><button type="button">Sign up</button></a>
+            <span class="fpsw"> <a href="forget-password.php">Forgot Password</a><span>
           </div>
         </form>
       </div>
@@ -107,39 +204,36 @@ window.onclick = function(event) {
 
 $("#loginform").validate({
   rules:{
-    uname: {
+    admin_name: {
       required: true,
       minlength:2     
     },
-    psw:{
+    admin_psw:{
       required: true,
-      minlength:5
     }
   }
 
 });
 $("#loginform2").validate({
   rules:{
-    uname: {
+    teacher_name: {
       required: true,
       minlength:2     
     },
-    psw:{
+    tpsw:{
       required: true,
-      minlength:5
     }
   }
 
 });
 $("#loginform3").validate({
   rules:{
-    uname: {
+    std_name: {
       required: true,
       minlength:2     
     },
-    psw:{
+    spsw:{
       required: true,
-      minlength:5
     }
   }
 
@@ -148,3 +242,25 @@ $("#loginform3").validate({
 
 </body>
 </html>
+<!-- 
+if(isset($_POST['std_submit'])){
+       //session_start();
+          $usernamestd = $_POST['std_name'];
+          $spsw = md5($_POST['spsw']);
+          $s="select * from Student where UserName='$usernamestd'";
+          $results= mysqli_query($conn, $s);
+          $email_count = mysqli_num_rows($results);
+          if($email_count){
+            $email_pass = mysqli_fetch_assoc($results);
+            $db_pass = $email_pass['spsw'];
+            $pass_decode = password_verify($spsw, $db_pass);
+            if($pass_decode){
+              echo"login successfull";var_dump($pass_decode);
+              session_start();
+            }else{
+              echo"password incorrect";
+            }
+          }else{
+            echo"invalid email";
+          }
+        } -->
